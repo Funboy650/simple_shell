@@ -1,8 +1,8 @@
 #include "shell.h"
 
 /**
- * get_environ - will return the string array copy of our environ
- * @info: Structure containing potential arguments. Used to maintain
+ * get_environ - This will return the string array copy of our environ
+ * @info: Structure containing potential arguments used to maintain
  *          constant function prototype.
  * Return: Always 0
  */
@@ -19,7 +19,7 @@ char **get_environ(info_t *info)
 
 /**
  * _unsetenv - function that removes an environment variable
- * @info: Structure containing potential arguments. Used to maintain
+ * @info: Structure containing potential arguments used to maintain
  *        constant function prototype.
  *  Return: 1 on delete, 0 otherwise
  * @var: the string env var property
@@ -28,15 +28,15 @@ int _unsetenv(info_t *info, char *var)
 {
 	list_t *node = info->env;
 	size_t i = 0;
-	char *p;
+	char *q;
 
 	if (!node || !var)
 		return (0);
 
 	while (node)
 	{
-		p = starts_with(node->str, var);
-		if (p && *p == '=')
+		q = starts_with(node->str, var);
+		if (q && *q == '=')
 		{
 			info->env_changed = delete_node_at_index(&(info->env), i);
 			i = 0;
@@ -50,9 +50,9 @@ int _unsetenv(info_t *info, char *var)
 }
 
 /**
- * _setenv - will iInitialize a new environment variable,
+ * _setenv - This will initialize a new environment variable,
  *             or modify an existing one
- * @info: Structure containing potential arguments. Used to maintain
+ * @info: Structure containing potential arguments used to maintain
  *        constant function prototype.
  * @var: the string env var property
  * @value: the string env var value
@@ -62,7 +62,7 @@ int _setenv(info_t *info, char *var, char *value)
 {
 	char *buf = NULL;
 	list_t *node;
-	char *p;
+	char *q;
 
 	if (!var || !value)
 		return (0);
@@ -76,8 +76,8 @@ int _setenv(info_t *info, char *var, char *value)
 	node = info->env;
 	while (node)
 	{
-		p = starts_with(node->str, var);
-		if (p && *p == '=')
+		q = starts_with(node->str, var);
+		if (q && *q == '=')
 		{
 			free(node->str);
 			node->str = buf;
