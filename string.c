@@ -2,42 +2,42 @@
 
 /**
  * _strlen - will return the length of a string
- * @s: the string whose length to check
+ * @f: the string whose length to check
  *
  * Return: integer length of string
  */
-int _strlen(char *s)
+int _strlen(char *f)
 {
 	int i = 0;
 
-	if (!s)
+	if (!f)
 		return (0);
 
-	while (*s++)
+	while (*f++)
 		i++;
 	return (i);
 }
 
 /**
  * _strcmp - will perform lexicogarphic comparison of two strangs.
- * @s1: the first strang
- * @s2: the second strang
+ * @f1: the first strang
+ * @f2: the second strang
  *
- * Return: negative if s1 < s2, positive if s1 > s2, zero if s1 == s2
+ * Return: negative if f1 < f2, positive if f1 > f2, zero if f1 == f2
  */
-int _strcmp(char *s1, char *s2)
+int _strcmp(char *f1, char *f2)
 {
-	while (*s1 && *s2)
+	while (*f1 && *f2)
 	{
-		if (*s1 != *s2)
-			return (*s1 - *s2);
-		s1++;
-		s2++;
+		if (*f1 != *f2)
+			return (*f1 - *f2);
+		f1++;
+		f2++;
 	}
-	if (*s1 == *s2)
+	if (*f1 == *f2)
 		return (0);
 	else
-		return (*s1 < *s2 ? -1 : 1);
+		return (*f1 < *f2 ? -1 : 1);
 }
 
 /**
@@ -56,7 +56,7 @@ char *starts_with(const char *haystack, const char *needle)
 }
 
 /**
- * _strcat - concatenates two strings
+ * _strcat - to concatenate two strings
  * @dest: the destination buffer
  * @src: the source buffer
  *
